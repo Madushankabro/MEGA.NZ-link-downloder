@@ -44,9 +44,10 @@ async def meganz(_, message):
     msg = await message.reply_text("`📥 Downloading...`")
     try:
         file = m.download_url(message, LOCATION)
-    except:
-        await msg.edit("`❌ Invalid Link.`")
-    await bot.send_file(message.chat.id, file)
+    except Exception as e:
+        print(str(e))
+        return await msg.edit("`❌ Invalid Link.`")
+    await bot.send_message(message.chat.id, file)
     await msg.delete()
     os.remove(file)
 
