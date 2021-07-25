@@ -1,0 +1,28 @@
+{
+    "name": "Mega-Nz Bot",
+    "description": "Mega.nz links downloader Telegram bot.",
+    "keywords": [
+        "Mega.nz",
+        "Mega Cloud",
+        "Telegram Bot",
+        "Infinity Bots"
+    ],
+    "repository": "https://github.com/ImJanindu/MegaNz-Bot",
+    "success_url": "https://t.me/Infinity_Bots",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "Your Telegram Bot Token from @BotFather",
+            "value": ""
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {"url": "heroku/python"}
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
