@@ -47,7 +47,7 @@ async def meganz(_, message):
     except Exception as e:
         print(str(e))
         return await msg.edit("`❌ Invalid Link.`")
-    await bot.send_message(message.chat.id, file)
+    await bot.send_document(message.chat.id, file)
     await msg.delete()
     os.remove(file)
 
