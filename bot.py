@@ -28,7 +28,7 @@ mega = Mega()
 m = mega.login()
 
 # location
-LOCATION = "./"
+LOCATION = "./Mega/"
 
 # logging
 bot = Client(
@@ -42,9 +42,10 @@ bot = Client(
 @bot.on_message(filters.command("start") & filters.private)
 async def start(_, message):
    user = message.from_user.mention
-   return await message.reply_text(f"""Hey {user}, I am **Mega.nz Bot** ✨
+   return await message.reply_text(f"""Hey {user}, I am **MegaNz Bot** ✨
+
 I can download mega.nz links & upload to Telegram 💥
-Give me any mega.nz link to get started 🚿""",
+Give me a mega.nz link to start download 🚿""",
    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Source Code 💻", url="https://github.com/ImJanindu/MegaNz-Bot")]]))
 
 # mega download
