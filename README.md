@@ -13,5 +13,6 @@
 ### Credits ❤
 
 - [Pyrogram](https://github.com/pyrogram)
+- [@ImJanindu](https://github.com/imjanindu)
 
 <br>🏷 Join [support group](https://t.me/InfinityBots_Support) for any help
