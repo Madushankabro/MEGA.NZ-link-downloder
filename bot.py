@@ -40,7 +40,7 @@ bot = Client(
 
 @bot.on_message(filters.regex(pattern="https://mega") & filters.private)
 async def meganz(_, message):
-    input = message
+    input = message.text
     msg = await message.reply_text("`📥 Downloading...`")
     try:
         file = m.download_url(message, LOCATION)
