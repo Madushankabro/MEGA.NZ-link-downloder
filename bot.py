@@ -19,6 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import os
 import logging
 from pyrogram import filters, Client, idle
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from mega import Mega
 from sample_config import Config
 
@@ -37,17 +38,29 @@ bot = Client(
    bot_token=Config.BOT_TOKEN,
 )
 
+# start msg
+@bot.on_message(filters.command("start") & filters.private)
+async def start(_, message):
+   user = message.from_user.mention
+   return await message.reply_text(f"""Hey {user}, I am **Mega.nz Bot** ✨
+I can download mega.nz links & upload to Telegram 💥
+Give me any mega.nz link to get started 🚿""",
+   reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Source Code 💻", url="https://github.com/ImJanindu/MegaNz-Bot")]]))
 
-@bot.on_message(filters.regex(pattern="https://mega") & filters.private)
+# mega download
+@bot.on_message(filters.regex(pattern="https://mega.nz/") & filters.private)
 async def meganz(_, message):
     input = message.text
-    msg = await message.reply_text("`📥 Downloading...`")
+    user = message.from_user.mention
+    msg = await message.reply_text("📥 `Downloading...`")
     try:
         file = m.download_url(input, LOCATION)
     except Exception as e:
         print(str(e))
-        return await msg.edit("`❌ Invalid Link.`")
-    await bot.send_document(message.chat.id, file)
+        return await msg.edit("❌ `Invalid Link.`")
+    await msg.edit("📤 `Uploading...`")
+    cap = f"✨ `Uploaded By:` {user} \n💻 `Bot By:` @Infinity_Bots"
+    await bot.send_document(message.chat.id, file, caption=cap)
     await msg.delete()
     os.remove(file)
 
