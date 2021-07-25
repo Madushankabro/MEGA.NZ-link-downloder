@@ -26,6 +26,9 @@ from sample_config import Config
 mega = Mega()
 m = mega.login()
 
+# location
+LOCATION = "./"
+
 # logging
 bot = Client(
    "MegaNz",
@@ -40,7 +43,7 @@ async def meganz(_, message):
     input = message.text
     msg = await message.reply_text("`📥 Downloading...`")
     try:
-        file = m.download_url(message, "./")
+        file = m.download_url(input, LOCATION)
     except Exception as e:
         print(str(e))
         return await msg.edit("`❌ Invalid Link.`")
