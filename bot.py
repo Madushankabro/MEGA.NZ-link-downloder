@@ -42,7 +42,7 @@ bot = Client(
 @bot.on_message(filters.command("start") & filters.private)
 async def start(_, message):
    user = message.from_user.mention
-   return await message.reply_text(f"""Hey {user}, I am **MegaNz Bot** ✨
+   return await message.reply_text(f"""Hey {user}, I am **Mega-Nz Bot** ✨
 
 I can download mega.nz links & upload to Telegram 💥
 Give me a mega.nz link to start download 🚿""",
