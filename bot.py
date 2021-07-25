@@ -16,6 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
+# Kang with credits vomro
+
 import os
 import logging
 from pyrogram import filters, Client, idle
