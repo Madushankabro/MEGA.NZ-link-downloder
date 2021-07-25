@@ -28,7 +28,7 @@ mega = Mega()
 m = mega.login()
 
 # location
-LOCATION = "./Mega/"
+LOCATION = "./"
 
 # logging
 bot = Client(
